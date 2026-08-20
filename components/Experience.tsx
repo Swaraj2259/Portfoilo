@@ -1,3 +1,7 @@
+"use client";
+
+import { useTheme } from "next-themes";
+
 type ExperienceItem = {
   role: string;
   org: string;
@@ -7,14 +11,13 @@ type ExperienceItem = {
 
 const experiences: ExperienceItem[] = [
   {
-    role: "Mumbai Lead",
-    org: "ActualOne (Web3 Community)",
-    period: "2024 - 2025",
+    role: "Engineering Intern",
+    org: "Aeromat Creative Labs Pvt. Ltd. Pune",
+    period: "June 2026 – Dec 2026",
     bullets: [
-      "Leading the Mumbai chapter of ActualOne, organizing and managing Web3-focused tech events, meetups, and developer sessions.",
-      "Engaging with developers to explain Web3 products, protocols, and real-world use cases in a simple and practical manner.",
-      "Coordinating developer relations with founders and ecosystem partners.",
-      "Representing the community at conferences and tech events.",
+      "Built and maintained internal modules for the company’s ERP system, handling inventory, order tracking, and vendor records.",
+      "Designed REST APIs to connect ERP modules with internal dashboards, cutting manual data entry across teams.",
+      "Worked with drone-captured aerial and geospatial datasets, structuring and feeding processed data into internal reporting pipelines.",
     ],
   },
   {
@@ -38,33 +41,54 @@ const experiences: ExperienceItem[] = [
       "Encouraging collaboration and mentoring juniors on development tools and concepts.",
     ],
   },
+  {
+    role: "Mumbai Lead",
+    org: "ActualOne (Web3 Community)",
+    period: "2024 - 2025",
+    bullets: [
+      "Leading the Mumbai chapter of ActualOne, organizing and managing Web3-focused tech events, meetups, and developer sessions.",
+      "Engaging with developers to explain Web3 products, protocols, and real-world use cases in a simple and practical manner.",
+      "Coordinating developer relations with founders and ecosystem partners.",
+      "Representing the community at conferences and tech events.",
+    ],
+  },
 ];
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto w-full max-w-6xl">
-        <p className="section-label mb-3 text-sm uppercase tracking-wide text-[var(--color-muted)]">Experience</p>
-        <h2 className="mb-8 text-2xl font-semibold sm:text-3xl">Community & Work</h2>
+    <section id="experience" className="w-full max-w-5xl mx-auto relative px-8 md:px-12 lg:px-16 pt-32 pb-24 overflow-hidden">
+      {/* Header Section */}
+      <header className="mb-12">
+        <p className="text-[var(--color-muted)] text-sm tracking-[0.24em] uppercase mb-4 font-mono">Experience</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-text)] tracking-tight">Community &amp; Work</h2>
+      </header>
 
-        <div className="experience-grid">
-          {experiences.map((item) => (
-            <article key={`${item.role}-${item.org}`} className="experience-card">
-              <div className="experience-date" aria-hidden>
-                {item.period}
-              </div>
-
-              <div className="experience-body">
-                <h3 className="text-lg font-semibold">{item.role}</h3>
-                <p className="mt-1 text-sm text-[var(--color-muted)]">{item.org}</p>
-
-                <ul className="mt-3 list-inside list-disc space-y-2 text-sm text-[var(--color-muted)]">
-                  {item.bullets.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
+      {/* Experience Container */}
+      <div className="relative w-full border-y border-[var(--color-border)]">
+        <div className="flex flex-col">
+          {experiences.map((item, index) => (
+            <div key={`${item.role}-${item.org}`}>
+              {index > 0 && <div className="w-full h-[1px] bg-[var(--color-border)]"></div>}
+              <article className="flex flex-col md:flex-row gap-6 py-7 px-4 -mx-4">
+                <div className="shrink-0 w-12 md:w-16 pt-0.5">
+                  <span className="font-mono text-[28px] text-[var(--color-muted)]">0{index + 1}</span>
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-1">
+                    <h3 className="text-[22px] font-bold text-[var(--color-text)] leading-tight inline-block">{item.role}</h3>
+                    <span className="font-mono text-sm text-[var(--color-muted)] mt-2 md:mt-0">{item.period}</span>
+                  </div>
+                  <p className="text-[var(--color-muted)] text-sm mb-5">{item.org}</p>
+                  <ul className="space-y-2 text-[var(--color-muted)] text-sm md:text-base leading-[1.7] list-none max-w-3xl">
+                    {item.bullets.map((bullet, i) => (
+                      <li key={i} className="relative pl-4 before:content-[''] before:absolute before:left-0 before:top-2.5 before:w-1 before:h-1 before:bg-[var(--color-muted)] before:rounded-full">
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </div>
           ))}
         </div>
       </div>

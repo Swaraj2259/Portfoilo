@@ -3,12 +3,25 @@
 @tailwind utilities;
 
 :root {
+  --color-bg: #ffffff;
+  --color-surface: #f7f7f7;
+  --color-border: #e5e5e5;
+  --color-text: #000000;
+  --color-muted: #525252;
+  --color-accent: #000000;
+  --color-glass-border: rgba(0, 0, 0, 0.1);
+  --color-glass-bg: rgba(0, 0, 0, 0.03);
+}
+
+.dark {
   --color-bg: #000000;
   --color-surface: #0f0f0f;
   --color-border: #2a2a2a;
   --color-text: #ffffff;
   --color-muted: #d4d4d4;
   --color-accent: #ffffff;
+  --color-glass-border: rgba(255, 255, 255, 0.18);
+  --color-glass-bg: rgba(255, 255, 255, 0.05);
 }
 
 * {
@@ -17,8 +30,9 @@
   padding: 0;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -38,7 +52,7 @@ a {
   right: 16px;
   bottom: 16px;
   left: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid var(--color-glass-border);
   border-radius: 12px;
   pointer-events: none;
   z-index: 40;
@@ -63,50 +77,6 @@ a {
   }
 }
 
-/* Experience layout */
-.experience-grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 1024px) {
-  .experience-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.experience-card {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--color-border);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-}
-
-.experience-date {
-  min-width: 110px;
-  text-align: center;
-  padding: 0.5rem 0.75rem;
-  border-radius: 9999px;
-  border: 1px solid var(--color-border);
-  color: var(--color-muted);
-  font-weight: 600;
-  font-size: 0.9rem;
-  background: rgba(255,255,255,0.02);
-}
-
-.experience-body h3 {
-  margin: 0;
-}
-
-.experience-card ul {
-  margin: 0.25rem 0 0 0;
-  padding-left: 1rem;
-}
-
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -120,4 +90,16 @@ a {
 
 .project-slide-in {
   animation: slideIn 0.35s ease both;
+}
+
+/* Experience Spotlight */
+.spotlight-mask {
+  -webkit-mask-image: radial-gradient(200px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+  mask-image: radial-gradient(200px circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+}
+
+.marquee-content {
+  display: inline-block;
+  white-space: nowrap;
+  will-change: transform;
 }

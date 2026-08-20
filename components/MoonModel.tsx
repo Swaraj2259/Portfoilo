@@ -6,7 +6,7 @@ import { cancelIdle, scheduleIdle } from "@/lib/scheduleIdle";
 
 const MoonScene = dynamic(() => import("./MoonScene"), {
   ssr: false,
-  loading: () => <div className="h-full w-full rounded-full bg-white/5 animate-pulse" />,
+  loading: () => <div className="h-full w-full rounded-full bg-black/5 dark:bg-white/5 animate-pulse" />,
 });
 
 export default function MoonModel() {
@@ -44,7 +44,7 @@ export default function MoonModel() {
       {shouldLoad ? (
         <MoonScene />
       ) : (
-        <div className="h-full w-full rounded-full bg-white/5 animate-pulse" />
+        <div className="h-full w-full rounded-full bg-black/5 dark:bg-white/5 animate-pulse" />
       )}
     </div>
   );

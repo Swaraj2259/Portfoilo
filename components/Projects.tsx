@@ -47,7 +47,7 @@ const PROJECTS: Project[] = [
     bullets: [
       "Designed and built a high-converting lead generation website for Aeromat, focused on performance and conversion UX.",
       "Integrated contact forms, CTA flows, and analytics tracking to capture and qualify inbound leads.",
-      "Built with a modern React-based stack with responsive layouts optimised for mobile-first browsing.",
+      "Built with a modern React-based stack with responsive layouts optimized for mobile-first browsing.",
       "Delivered clean, maintainable codebase ready for client-side edits post-handoff.",
     ],
     github: "https://github.com/Swaraj2259/aeromat-leadgen-site",
@@ -121,8 +121,8 @@ function BubblePhysicsCanvas({ techs }: { techs: { label: string; size: number }
   const rafId = useRef(0);
 
   useEffect(() => {
-    const W = 360;
-    const H = 380;
+    const W = 400;
+    const H = 420;
     const rots = [-15, 15, -20, 20, -10, 10, 0];
 
     bubblesRef.current = techs.map((t, i) => {
@@ -151,8 +151,8 @@ function BubblePhysicsCanvas({ techs }: { techs: { label: string; size: number }
     const loop = () => {
       if (!isRunning.current) return;
 
-      const W = containerRef.current?.offsetWidth || 360;
-      const H = containerRef.current?.offsetHeight || 380;
+      const W = containerRef.current?.offsetWidth || 400;
+      const H = containerRef.current?.offsetHeight || 420;
       const bubbles = bubblesRef.current;
 
       for (const b of bubbles) {
@@ -377,7 +377,7 @@ function BubblePhysicsCanvas({ techs }: { techs: { label: string; size: number }
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full max-w-[360px] h-[380px] select-none touch-none overflow-hidden cursor-crosshair group flex items-center justify-center flex-shrink-0"
+      className="relative w-full max-w-[400px] h-[420px] select-none touch-none overflow-hidden cursor-crosshair group flex items-center justify-center flex-shrink-0"
     >
       {techs.map((t, i) => {
         const scaledSize = Math.floor(t.size * 1.4);
@@ -391,14 +391,14 @@ function BubblePhysicsCanvas({ techs }: { techs: { label: string; size: number }
             }}
             onMouseDown={(e) => handlePointerDown(e, t.label)}
             onTouchStart={(e) => handlePointerDown(e, t.label)}
-            className="absolute flex cursor-grab items-center justify-center rounded-full bg-white transition-[box-shadow] duration-75 active:cursor-grabbing hover:ring-4 hover:ring-white/20"
+            className="absolute flex cursor-grab items-center justify-center rounded-full bg-[var(--color-text)] transition-[box-shadow] duration-75 active:cursor-grabbing hover:ring-4 hover:ring-[var(--color-glass-border)]"
             style={{
               width: scaledSize,
               height: scaledSize,
               transform: `rotate(${rots[i % rots.length]}deg)`,
             }}
           >
-            <span className="pointer-events-none max-w-[85%] px-1 text-center font-mono text-xs font-bold leading-tight text-[#111] drop-shadow-sm">
+            <span className="pointer-events-none max-w-[85%] px-1 text-center font-mono text-xs font-bold leading-tight text-[var(--color-bg)] drop-shadow-sm">
               {t.label}
             </span>
           </div>
@@ -424,7 +424,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="px-4 py-24 sm:px-6 lg:px-8 flex flex-col items-center justify-center min-h-screen">
-      <div className="relative w-full max-w-5xl mx-auto">
+      <div className="relative w-full max-w-6xl mx-auto">
         {/* Slide */}
         <div
           key={animKey}
@@ -432,28 +432,28 @@ export default function Projects() {
         >
           {/* Left */}
           <div className="flex-1 min-w-0 w-full">
-            <p className="font-mono text-[10px] tracking-[2px] text-[#555] uppercase mb-3">
+            <p className="font-mono text-xs tracking-[2px] text-[var(--color-muted)] uppercase mb-3">
               {project.index}
             </p>
             <h1
-              className="font-mono text-[26px] font-bold leading-tight mb-2 text-white whitespace-pre-line"
+              className="font-mono text-3xl md:text-4xl font-bold leading-tight mb-2 text-[var(--color-text)] whitespace-pre-line"
             >
               {project.title}
             </h1>
-            <p className="font-mono text-[13px] text-[#444] mb-6">
+            <p className="font-mono text-sm text-[var(--color-muted)] mb-6">
               {project.subtitle}&nbsp;&nbsp;·&nbsp;&nbsp;{project.meta}
             </p>
 
-            <p className="font-mono text-[11px] tracking-widest text-[#666] mb-3 uppercase">
+            <p className="font-mono text-xs tracking-widest text-[var(--color-muted)] mb-3 uppercase">
               Experience
             </p>
             <ul className="space-y-0">
               {project.bullets.map((b, i) => (
                 <li
                   key={i}
-                  className="relative pl-5 py-2.5 text-[13.5px] text-[#ccc] leading-relaxed border-b border-[#151515]"
+                  className="relative pl-6 py-3 text-[15px] text-[var(--color-text)] opacity-90 leading-relaxed border-b border-[var(--color-border)]"
                 >
-                  <span className="absolute left-0 top-2.5 text-[#444] text-lg leading-none">
+                  <span className="absolute left-0 top-3 text-[var(--color-muted)] text-lg leading-none">
                     ›
                   </span>
                   {b}
@@ -461,13 +461,13 @@ export default function Projects() {
               ))}
             </ul>
 
-            <div className="flex items-center gap-3 mt-5">
+            <div className="flex items-center gap-3 mt-6">
               {project.link && (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] text-[#fff] bg-[#2a2a2a] border border-[#2a2a2a] px-3.5 py-2 rounded hover:bg-[#333] hover:border-[#444] transition-all duration-200"
+                  className="inline-flex items-center gap-2 font-mono text-xs text-[var(--color-text)] bg-[var(--color-surface)] border border-[var(--color-border)] px-4 py-2.5 rounded hover:bg-[var(--color-border)] transition-all duration-200"
                 >
                   <ExternalLinkIcon />
                   Live Site
@@ -477,7 +477,7 @@ export default function Projects() {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-mono text-[11px] text-[#555] border border-[#2a2a2a] px-3.5 py-2 rounded hover:border-[#555] hover:text-[#aaa] transition-all duration-200"
+                className="inline-flex items-center gap-2 font-mono text-xs text-[var(--color-muted)] border border-[var(--color-border)] px-4 py-2.5 rounded hover:border-[var(--color-text)] hover:text-[var(--color-text)] transition-all duration-200"
               >
                 <GitHubIcon />
                 View on GitHub
@@ -486,11 +486,11 @@ export default function Projects() {
           </div>
 
           {/* Divider hidden on mobile */}
-          <div className="hidden lg:block w-px self-stretch bg-[#1a1a1a] flex-shrink-0" />
+          <div className="hidden lg:block w-px self-stretch bg-[var(--color-border)] flex-shrink-0" />
 
           {/* Right */}
-          <div className="w-full lg:w-[360px] flex-shrink-0 flex flex-col items-center lg:items-start mt-8 lg:mt-0">
-            <p className="font-mono text-[11px] tracking-[2px] text-[#444] uppercase mb-5 self-start lg:self-auto">
+          <div className="w-full lg:w-[400px] flex-shrink-0 flex flex-col items-center lg:items-start mt-8 lg:mt-0">
+            <p className="font-mono text-xs tracking-[2px] text-[var(--color-muted)] uppercase mb-5 self-start lg:self-auto">
               Technical Skills
             </p>
             <BubblePhysicsCanvas key={current} techs={project.tech} />
@@ -502,13 +502,13 @@ export default function Projects() {
         <ArrowButton direction="right" onClick={() => goTo(current + 1)} />
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 py-4 border-t border-[#111] mt-8">
+        <div className="flex justify-center gap-2 py-4 border-t border-[var(--color-border)] mt-8">
           {PROJECTS.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === current ? "w-7 bg-white" : "w-1.5 bg-[#2a2a2a]"
+                i === current ? "w-7 bg-[var(--color-text)]" : "w-1.5 bg-[var(--color-border)]"
               }`}
             />
           ))}
@@ -532,13 +532,13 @@ function ArrowButton({
     <button
       onClick={onClick}
       aria-label={direction === "left" ? "Previous project" : "Next project"}
-      className={`absolute flex items-center justify-center border border-[var(--color-border)] rounded-md text-[var(--color-muted)] transition-all duration-200 z-10 bg-[var(--color-surface)] shadow-lg hover:border-white hover:text-white
+      className={`absolute flex items-center justify-center border border-[var(--color-border)] rounded-md text-[var(--color-muted)] transition-all duration-200 z-10 bg-[var(--color-surface)] shadow-lg hover:border-[var(--color-text)] hover:text-[var(--color-text)]
         w-10 h-10 text-lg sm:w-9 sm:h-14 sm:text-xl
         bottom-[10px] sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 
         ${
           direction === "left" 
-            ? "left-2 sm:left-0 xl:-left-12" 
-            : "right-2 sm:right-0 xl:-right-12"
+            ? "left-2 sm:-left-2 md:-left-4 xl:-left-4" 
+            : "right-2 sm:-right-2 md:-right-4 xl:-right-4"
         }
       `}
     >

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const socialLinks = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Email", href: "mailto:your.email@example.com" },
+  { label: "GitHub", href: "https://github.com/Swaraj2259" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/swaraj-wattamwar" },
+  { label: "Email", href: "mailto:swarajmahesh83@gmail.com" },
 ];
 
 export default function Contact() {

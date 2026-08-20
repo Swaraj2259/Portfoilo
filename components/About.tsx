@@ -47,14 +47,14 @@ export default function About() {
             <a
               href="/SwarajWattamwar_Resume.pdf"
               download
-              className="rounded border border-[var(--color-border)] px-5 py-2.5 text-sm text-[var(--color-text)] transition-colors hover:bg-[var(--color-border)] hover:text-white"
+              className="rounded border border-[var(--color-border)] px-5 py-2.5 text-sm text-[var(--color-text)] transition-colors hover:bg-[var(--color-border)] hover:text-black dark:hover:text-white"
             >
               Download Resume
             </a>
 
             <Link
               href="mailto:swarajmahesh83@gmail.com"
-              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-white hover:underline transition-colors"
+              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-black dark:hover:text-white hover:underline transition-colors"
             >
               Email Me
             </Link>
@@ -63,7 +63,7 @@ export default function About() {
               href="https://github.com/Swaraj2259"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-white hover:underline transition-colors"
+              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-black dark:hover:text-white hover:underline transition-colors"
             >
               GitHub
             </Link>
@@ -72,7 +72,7 @@ export default function About() {
               href="https://linkedin.com/in/swaraj-wattamwar"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-white hover:underline transition-colors"
+              className="text-sm font-medium text-[var(--color-muted)] underline-offset-4 hover:text-black dark:hover:text-white hover:underline transition-colors"
             >
               LinkedIn
             </Link>

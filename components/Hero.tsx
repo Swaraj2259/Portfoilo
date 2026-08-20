@@ -2,7 +2,7 @@ import HeroDeferredMoon from "./HeroDeferredMoon";
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative flex min-h-screen flex-col justify-center px-6 pb-8 pt-32 sm:px-12 lg:px-16">
+    <section id="hero" className="relative z-10 flex min-h-screen flex-col justify-center px-6 pb-8 pt-32 sm:px-12 lg:px-16">
       <div className="mx-auto w-full max-w-[1300px]">
         <p className="text-sm uppercase tracking-[0.24em] text-[var(--color-muted)]">Portfolio</p>
 

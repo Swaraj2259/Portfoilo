@@ -21,12 +21,8 @@ export default function Skills() {
           {skills.map((skill) => (
             <article
               key={skill}
-              className="skill-card rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-4"
+              className="skill-card rounded border border-[var(--color-border)] bg-[var(--color-surface)] p-4 flex items-center justify-center"
             >
-              {/* ADD ANIMATION HERE */}
-              <div className="mb-3 h-10 w-10 rounded border border-[var(--color-border)] bg-[var(--color-bg)]">
-                {/* ADD ICON */}
-              </div>
               <h3 className="text-sm font-medium">{skill}</h3>
             </article>
           ))}

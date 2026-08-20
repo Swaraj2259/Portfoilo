@@ -7,7 +7,7 @@ import { cancelIdle, scheduleIdle } from "@/lib/scheduleIdle";
 const MoonModel = dynamic(() => import("./MoonModel"), {
   ssr: false,
   loading: () => (
-    <div className="relative mx-auto flex aspect-square w-full max-w-[500px] items-center justify-center rounded-full bg-white/5 animate-pulse lg:h-[600px] lg:max-w-full" />
+    <div className="relative mx-auto flex aspect-square w-full max-w-[500px] items-center justify-center rounded-full bg-black/5 dark:bg-white/5 animate-pulse lg:h-[600px] lg:max-w-full" />
   ),
 });
 
@@ -21,7 +21,7 @@ export default function HeroDeferredMoon() {
 
   if (!ready) {
     return (
-      <div className="relative mx-auto flex aspect-square w-full max-w-[500px] items-center justify-center rounded-full bg-white/5 animate-pulse lg:h-[600px] lg:max-w-full" />
+      <div className="relative mx-auto flex aspect-square w-full max-w-[500px] items-center justify-center rounded-full bg-black/5 dark:bg-white/5 animate-pulse lg:h-[600px] lg:max-w-full" />
     );
   }
 
